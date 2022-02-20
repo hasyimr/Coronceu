@@ -23,7 +23,15 @@ p {
     font-size: 1em;
 }
 
-footer p {
+
+
+.footer {
+    text-align: center;
+    margin-top: 30em;
+    margin-bottom: 2em;
+}
+
+.footer-x {
     text-align: center;
     margin-top: 5em;
     margin-bottom: 2em;
@@ -113,9 +121,7 @@ h3 {
 }
 
 .upper {
-    height: 100%;
-    display: flex;
-    align-items: center;
+    margin-bottom: 5em;
 }
 
 .test {
