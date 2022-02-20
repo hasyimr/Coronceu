@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Indonesia Covid Cases Checker</title>
+</head>
+<body>
+    {% if method == "GET" %}
+        <section class="upper">
+            <div class="hero-container">
+                <h1>Indonesia’s Province <span>COVID</span> Cases Tracker</h1>
+                <p>Search The Province</p>
+                <form action="" method="post">
+                    {{ form.csrf_token }}
+                    <div class="form-container">
+                        {{form.nama_provinsi(class_="form-input")}}
+                        {{form.submit(class_="search-button")}}
+                    </div>
+                </form>
+            </div>
+        </section>
+    {% endif %}
+
+    {% if method != "GET" %}
+    <div class="test">
+        <div class="hero-container">
+            <h1>Indonesia’s Province <span>COVID</span> Cases Tracker</h1>
+            <p>Search The Province</p>
+            <form action="" method="post">
+                {{ form.csrf_token }}
+                <div class="form-container">
+                    {{form.nama_provinsi(class_="form-input")}}
+                    {{form.submit(class_="search-button")}}
+                </div>
+            </form>
+        </div>
+
+        {% if data != "Not Found" %}
+            <div class="result-container">
+                <h2>{{data["provinsi"]}}</h2>
+                {% for i in range(lenght) %}
+
+                    <h3>{{data_label[i]}}</h3>
+                    <p>{{data_list[i]}}</p>
+
+                {% endfor %}
+
+
+            </div>
+        {% endif %}
+    </div>
+        {% if data == "Not Found" %}
+        <div class="result-container">
+            <h2>{{data}}</h2>
+        </div>
+        {% endif %}
+
+    {% endif %}
+    
+</body>
+<footer>
+    <p>Made by Hasyim Rahmadi</p>
+</footer>
+</html>
